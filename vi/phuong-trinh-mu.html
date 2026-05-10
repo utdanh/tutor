@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chinh phục Phương trình Mũ</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Cấu hình MathJax để nhận diện ký hiệu $ cho công thức nội dòng -->
     <script>
         window.MathJax = {
             tex: {
@@ -15,6 +16,7 @@
             }
         };
     </script>
+    <!-- Thư viện MathJax để hiển thị công thức Toán đẹp mắt -->
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <style>
         .hidden-content {
@@ -38,6 +40,14 @@
             margin: 1rem 0;
         }
 
+        .quiz-card {
+            transition: transform 0.2s;
+        }
+
+        .quiz-card:hover {
+            transform: scale(1.01);
+        }
+
         .exercise-card {
             border-left: 4px solid #e2e8f0;
         }
@@ -54,15 +64,16 @@
 
 <body class="bg-gray-50 text-gray-800 leading-relaxed">
 
+    <!-- Header Section -->
     <header class="bg-indigo-600 text-white py-12 px-4 shadow-lg text-center">
         <h1 class="text-3xl md:text-4xl font-bold mb-4">Chinh phục Phương trình Mũ Phức tạp</h1>
         <p class="text-lg opacity-90 max-w-2xl mx-auto">Từng bước làm chủ các phương trình chứa lũy thừa và hằng đẳng
-            thức ẩn giấu.</p>
+            thức ẩn giấu thông qua hướng dẫn tương tác.</p>
     </header>
 
     <main class="max-w-4xl mx-auto px-4 py-8">
 
-        <!-- Phần 1: Ôn tập -->
+        <!-- Phần 1: Khởi động -->
         <section class="mb-12">
             <div class="flex items-center mb-6">
                 <div class="bg-blue-100 p-2 rounded-full mr-4">
@@ -82,24 +93,71 @@
                         <div>
                             <p class="text-xs font-semibold text-gray-400 uppercase mb-2">Dạng trừ $(-a)$:</p>
                             <ul class="space-y-1">
+                                <li>$x^2 - 2x + 1 = (x - 1)^2$</li>
                                 <li>$x^2 - 4x + 4 = (x - 2)^2$</li>
+                                <li>$x^2 - 6x + 9 = (x - 3)^2$</li>
                             </ul>
                         </div>
                         <div>
                             <p class="text-xs font-semibold text-gray-400 uppercase mb-2">Dạng cộng $(+a)$:</p>
                             <ul class="space-y-1">
+                                <li>$x^2 + 2x + 1 = (x + 1)^2$</li>
                                 <li>$x^2 + 4x + 4 = (x + 2)^2$</li>
+                                <li>$x^2 + 6x + 9 = (x + 3)^2$</li>
                             </ul>
                         </div>
                     </div>
                 </div>
                 <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
                     <h3 class="font-bold text-indigo-600 mb-2">2. Quy tắc hàm mũ</h3>
-                    <ul class="space-y-1 text-sm">
-                        <li>$(a^m)^n = a^{m \cdot n}$</li>
-                        <li>$a^m \cdot a^n = a^{m+n}$</li>
-                        <li>$a^{-m} \cdot a^m = a^0 = 1$</li>
+                    <ul class="space-y-2 text-sm">
+                        <li>$(a^m)^n = a^{m \cdot n}$ (Ví dụ: $(e^2)^3 = e^6$)</li>
+                        <li>$a^m \cdot a^n = a^{m+n}$ (Ví dụ: $e^2 \cdot e^x = e^{2+x}$)</li>
+                        <li>$a^{-m} \cdot a^m = a^0 = 1$ (Ví dụ: $e^{-2} \cdot e^2 = 1$)</li>
                     </ul>
+                </div>
+            </div>
+
+            <!-- Quiz Section -->
+            <div class="mt-8 bg-indigo-50 p-6 rounded-xl border border-indigo-100">
+                <h3 class="text-xl font-bold mb-4 text-indigo-800">Thử thách nhỏ cho em (Quiz)</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="space-y-4">
+                        <p class="text-xs font-bold text-indigo-400 uppercase tracking-wider">Nhóm 1: Biến đổi hằng đẳng
+                            thức</p>
+                        <div class="bg-white p-4 rounded-lg shadow-sm quiz-card border-l-4 border-indigo-300">
+                            <p class="text-sm font-medium mb-2">Q1.1: $x^2 - 4x + 5$ bằng $(x-2)^2$ cộng mấy?</p>
+                            <button onclick="toggleElement('ans1_1')"
+                                class="text-indigo-600 text-xs font-semibold hover:underline">Xem đáp án</button>
+                            <div id="ans1_1" class="hidden-content mt-2 p-2 bg-gray-50 rounded text-xs text-gray-700">
+                                $x^2 - 4x + 4 + 1 = (x-2)^2 + 1$.</div>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow-sm quiz-card border-l-4 border-indigo-300">
+                            <p class="text-sm font-medium mb-2">Q1.2: Biến đổi $x^2 + 6x + 10$ về dạng $(x+a)^2 + k$?
+                            </p>
+                            <button onclick="toggleElement('ans1_2')"
+                                class="text-indigo-600 text-xs font-semibold hover:underline">Xem đáp án</button>
+                            <div id="ans1_2" class="hidden-content mt-2 p-2 bg-gray-50 rounded text-xs text-gray-700">
+                                $(x+3)^2 + 1$.</div>
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <p class="text-xs font-bold text-indigo-400 uppercase tracking-wider">Nhóm 2: Logic hàm mũ</p>
+                        <div class="bg-white p-4 rounded-lg shadow-sm quiz-card border-l-4 border-purple-300">
+                            <p class="text-sm font-medium mb-2">Q2.1: Rút gọn $(e^2)^{(x-2)^2+1}$?</p>
+                            <button onclick="toggleElement('ans2_1')"
+                                class="text-indigo-600 text-xs font-semibold hover:underline">Xem đáp án</button>
+                            <div id="ans2_1" class="hidden-content mt-2 p-2 bg-gray-50 rounded text-xs text-gray-700">
+                                $e^{2(x-2)^2 + 2}$.</div>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow-sm quiz-card border-l-4 border-purple-300">
+                            <p class="text-sm font-medium mb-2">Q2.2: Tính nhanh $e^5 \cdot e^{-5}$?</p>
+                            <button onclick="toggleElement('ans2_2')"
+                                class="text-indigo-600 text-xs font-semibold hover:underline">Xem đáp án</button>
+                            <div id="ans2_2" class="hidden-content mt-2 p-2 bg-gray-50 rounded text-xs text-gray-700">
+                                $e^0 = 1$.</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -117,74 +175,92 @@
                 <h2 class="text-2xl font-bold">Phần 2: Lời giải chi tiết bài toán chính</h2>
             </div>
 
-            <div class="bg-white p-8 rounded-2xl shadow-md border-t-4 border-indigo-500 mb-8">
-                <p class="text-center text-lg font-semibold mb-4">Giải phương trình:</p>
-                <div class="math-block text-center text-xl overflow-x-auto">
+            <div class="bg-white p-8 rounded-2xl shadow-md border-t-4 border-indigo-500 mb-8 text-center">
+                <p class="text-lg font-semibold mb-4">Phương trình cần giải:</p>
+                <div class="math-block text-xl overflow-x-auto">
                     $$(1 + e^{-2})(e^2)^{x^2-4x+5} = e^2 + e^{4(x-2)^2}$$
                 </div>
             </div>
 
             <div class="space-y-6">
+                <!-- Bước 1 -->
                 <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
                     <h4 class="font-bold text-indigo-700 mb-2">Bước 1: Phân tích và đơn giản hóa số mũ</h4>
+                    <p class="text-sm text-gray-600 mb-4">Mục tiêu: Đưa các biểu thức mũ về dạng biến trung gian giống
+                        nhau.</p>
                     <button onclick="toggleElement('step1_vi')"
                         class="reveal-btn bg-indigo-600 text-white px-6 py-2 rounded-lg text-sm font-bold shadow-md">Xem
                         chi tiết bước 1</button>
                     <div id="step1_vi"
                         class="hidden-content mt-4 step-detail bg-blue-50 p-4 rounded-lg border-l-4 border-blue-400">
-                        $$x^2 - 4x + 5 = (x^2 - 4x + 4) + 1 = (x-2)^2 + 1$$
-                        Thay vào VT: $(1 + e^{-2}) \cdot e^{2 \cdot [(x-2)^2 + 1]} = (1 + e^{-2}) \cdot e^{2(x-2)^2 +
-                        2}$
+                        <p>Sử dụng hằng đẳng thức: $x^2 - 4x + 5 = (x^2 - 4x + 4) + 1 = (x-2)^2 + 1$.</p>
+                        <p>Thay vào vế trái (VT):</p>
+                        $$(1 + e^{-2}) \cdot (e^2)^{(x-2)^2 + 1} = (1 + e^{-2}) \cdot e^{2(x-2)^2 + 2}$$
                     </div>
                 </div>
 
+                <!-- Bước 2 -->
                 <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
                     <h4 class="font-bold text-indigo-700 mb-2">Bước 2: Biến đổi Vế trái (VT)</h4>
+                    <p class="text-sm text-gray-600 mb-4">Mục tiêu: Nhân phân phối để triệt tiêu hằng số phức tạp.</p>
                     <button onclick="toggleElement('step2_vi')"
                         class="reveal-btn bg-indigo-600 text-white px-6 py-2 rounded-lg text-sm font-bold shadow-md">Xem
                         chi tiết bước 2</button>
                     <div id="step2_vi"
                         class="hidden-content mt-4 step-detail bg-blue-50 p-4 rounded-lg border-l-4 border-blue-400">
-                        $$VT = (1 + e^{-2}) \cdot e^{2(x-2)^2} \cdot e^2 = e^2 \cdot e^{2(x-2)^2} + e^{2(x-2)^2}$$
+                        <p>Ta có $e^{2(x-2)^2 + 2} = e^{2(x-2)^2} \cdot e^2$. Nhân vào $(1 + e^{-2})$:</p>
+                        $$VT = (1 + e^{-2}) \cdot e^{2(x-2)^2} \cdot e^2 = e^2 \cdot e^{2(x-2)^2} + (e^{-2} \cdot e^2)
+                        \cdot e^{2(x-2)^2}$$
+                        <p>Vì $e^{-2} \cdot e^2 = 1$, vế trái rút gọn thành: $e^2 \cdot e^{2(x-2)^2} + e^{2(x-2)^2}$.
+                        </p>
                     </div>
                 </div>
 
+                <!-- Bước 3 -->
                 <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-                    <h4 class="font-bold text-indigo-700 mb-2">Bước 3: Đặt ẩn phụ</h4>
+                    <h4 class="font-bold text-indigo-700 mb-2">Bước 3: Đặt ẩn phụ $t$</h4>
+                    <p class="text-sm text-gray-600 mb-4">Mục tiêu: Đưa phương trình mũ về phương trình bậc hai.</p>
                     <button onclick="toggleElement('step3_vi')"
                         class="reveal-btn bg-indigo-600 text-white px-6 py-2 rounded-lg text-sm font-bold shadow-md">Xem
                         chi tiết bước 3</button>
                     <div id="step3_vi"
                         class="hidden-content mt-4 step-detail bg-blue-50 p-4 rounded-lg border-l-4 border-blue-400">
-                        Đặt $t = e^{2(x-2)^2} \geq 1$. Phương trình trở thành: $t^2 - (e^2 + 1)t + e^2 = 0$.
+                        <p>Đặt $t = e^{2(x-2)^2}$ (với $t \geq 1$). Khi đó $e^{4(x-2)^2} = t^2$.</p>
+                        <p>Phương trình trở thành: $t \cdot e^2 + t = e^2 + t^2$</p>
+                        $$\Leftrightarrow t^2 - (e^2 + 1)t + e^2 = 0$$
                     </div>
                 </div>
 
+                <!-- Bước 4 -->
                 <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-                    <h4 class="font-bold text-indigo-700 mb-2">Bước 4: Giải t</h4>
+                    <h4 class="font-bold text-indigo-700 mb-2">Bước 4: Giải phương trình tích</h4>
                     <button onclick="toggleElement('step4_vi')"
                         class="reveal-btn bg-indigo-600 text-white px-6 py-2 rounded-lg text-sm font-bold shadow-md">Xem
                         chi tiết bước 4</button>
                     <div id="step4_vi"
                         class="hidden-content mt-4 step-detail bg-blue-50 p-4 rounded-lg border-l-4 border-blue-400">
-                        $(t-1)(t-e^2) = 0 \Rightarrow t = 1$ hoặc $t = e^2$.
+                        <p>Phân tích nhân tử: $(t - 1)(t - e^2) = 0$.</p>
+                        <p>Suy ra: $t = 1$ hoặc $t = e^2$. Cả hai đều thỏa mãn $t \geq 1$.</p>
                     </div>
                 </div>
 
+                <!-- Bước 5 -->
                 <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-                    <h4 class="font-bold text-indigo-700 mb-2">Bước 5: Tìm x</h4>
+                    <h4 class="font-bold text-indigo-700 mb-2">Bước 5: Tìm x và kết luận</h4>
                     <button onclick="toggleElement('step5_vi')"
                         class="reveal-btn bg-indigo-600 text-white px-6 py-2 rounded-lg text-sm font-bold shadow-md">Xem
                         kết quả cuối cùng</button>
                     <div id="step5_vi"
-                        class="hidden-content mt-4 step-detail bg-blue-50 p-4 rounded-lg border-l-4 border-blue-400">
-                        Tập nghiệm $S = \{1; 2; 3\}$.
+                        class="hidden-content mt-4 step-detail bg-blue-50 p-4 rounded-lg border-l-4 border-blue-400 text-center">
+                        <p>1. $e^{2(x-2)^2} = 1 \Rightarrow x = 2$.</p>
+                        <p>2. $e^{2(x-2)^2} = e^2 \Rightarrow (x-2)^2 = 1 \Rightarrow x = 1$ hoặc $x = 3$.</p>
+                        <p class="mt-4 font-bold text-indigo-800">Tập nghiệm $S = \{1; 2; 3\}$.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Phần 3: Tự luyện -->
+        <!-- Phần 3: Thử thách tự luyện -->
         <section class="mb-12">
             <div class="flex items-center mb-6">
                 <div class="bg-yellow-100 p-2 rounded-full mr-4">
@@ -204,7 +280,7 @@
                         độ 1: Cơ bản</span>
                     <p class="font-medium mb-4">Bài 1: Giải phương trình: $2^{x^2-2x+1} = 4$</p>
                     <button onclick="toggleElement('ex1_ans')"
-                        class="text-indigo-600 text-sm hover:underline font-bold">Xem đáp án</button>
+                        class="text-indigo-600 text-sm font-bold hover:underline">Xem đáp án</button>
                     <div id="ex1_ans" class="hidden-content mt-2 p-3 bg-green-50 rounded text-sm font-bold">Đáp án: $x =
                         1 \pm \sqrt{2}$.</div>
                 </div>
@@ -215,7 +291,7 @@
                         độ 2: Trung bình</span>
                     <p class="font-medium mb-4">Bài 2: Giải: $e^{2(x+1)^2} - (e+1)e^{(x+1)^2} + e = 0$</p>
                     <button onclick="toggleElement('ex2_ans')"
-                        class="text-indigo-600 text-sm hover:underline font-bold">Xem đáp án</button>
+                        class="text-indigo-600 text-sm font-bold hover:underline">Xem đáp án</button>
                     <div id="ex2_ans" class="hidden-content mt-2 p-3 bg-green-50 rounded text-sm font-bold">Đáp án: $x =
                         -1, 0, -2$.</div>
                 </div>
@@ -226,7 +302,7 @@
                         độ 3: Nâng cao</span>
                     <p class="font-medium mb-4">Bài 3: Giải: $(1 + e^{-1})e^{(x-3)^2+1} = e + e^{2(x-3)^2}$</p>
                     <button onclick="toggleElement('ex3_ans')"
-                        class="text-indigo-600 text-sm hover:underline font-bold">Xem đáp án</button>
+                        class="text-indigo-600 text-sm font-bold hover:underline">Xem đáp án</button>
                     <div id="ex3_ans" class="hidden-content mt-2 p-3 bg-green-50 rounded text-sm font-bold">Đáp án:
                         $x=3, 2, 4$.</div>
                 </div>
@@ -244,18 +320,18 @@
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <div class="bg-gray-700 p-6 rounded-xl border-t-4 border-yellow-400">
                         <h4 class="font-bold text-yellow-400 mb-3 text-lg">1. Đồng nhất</h4>
-                        <p class="text-sm leading-relaxed text-gray-200">Đưa các biểu thức phức tạp ở số mũ về cùng một
-                            dạng biến (thường là dùng hằng đẳng thức hoặc tách số hạng tự do).</p>
+                        <p class="text-sm text-gray-200">Đưa các biểu thức phức tạp ở số mũ về cùng một dạng biến
+                            (thường là dùng hằng đẳng thức hoặc tách số hạng tự do).</p>
                     </div>
                     <div class="bg-gray-700 p-6 rounded-xl border-t-4 border-green-400">
                         <h4 class="font-bold text-green-400 mb-3 text-lg">2. Đặt</h4>
-                        <p class="text-sm leading-relaxed text-gray-200">Sử dụng ẩn phụ $t$ để biến phương trình mũ
-                            "cồng kềnh" thành phương trình đại số (bậc 2, bậc 3) quen thuộc.</p>
+                        <p class="text-sm text-gray-200">Sử dụng ẩn phụ $t$ để biến phương trình mũ "cồng kềnh" thành
+                            phương trình đại số (bậc 2, bậc 3) quen thuộc.</p>
                     </div>
                     <div class="bg-gray-700 p-6 rounded-xl border-t-4 border-blue-400">
                         <h4 class="font-bold text-blue-400 mb-3 text-lg">3. Đưa về tích</h4>
-                        <p class="text-sm leading-relaxed text-gray-200">Luôn ưu tiên việc chuyển vế và phân tích nhân
-                            tử thay vì tính toán các số lẻ như $e$ hay $\pi$.</p>
+                        <p class="text-sm text-gray-200">Luôn ưu tiên việc chuyển vế và phân tích nhân tử thay vì tính
+                            toán các số lẻ như $e$ hay $\pi$.</p>
                     </div>
                 </div>
                 <p class="text-center text-indigo-300 font-medium italic mt-4">Chúc em luôn học tốt và yêu thích môn
