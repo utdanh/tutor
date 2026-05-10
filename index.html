@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>High School Mathematics Lessons</title>
+    <meta name="description" content="Interactive high school mathematics lessons to help you master complex topics with ease.">
+    
+    <!-- Modern Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Animated background -->
+    <div class="background-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+    </div>
+    
+    <div class="container">
+        <header>
+            <div class="logo" id="logo-text">MathTutor</div>
+            <div class="lang-switch">
+                <button class="lang-btn active" data-lang="en">EN</button>
+                <button class="lang-btn" data-lang="vi">VI</button>
+            </div>
+        </header>
+
+        <main>
+            <section class="hero">
+                <h1 id="hero-title">Master High School Mathematics</h1>
+                <p id="hero-desc">Explore our interactive lessons designed to make complex mathematical concepts simple and easy to understand. Choose a topic below to begin your learning journey.</p>
+            </section>
+
+            <section class="lessons-grid" id="lessons-grid">
+                <!-- Lessons will be dynamically injected here by JS -->
+            </section>
+        </main>
+        
+        <footer>
+            <p id="footer-text">&copy; 2026 MathTutor. All rights reserved.</p>
+        </footer>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
