@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mastering Complex Exponential Equations</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- MathJax Configuration for inline and block math -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        .hidden-content {
+            display: none;
+        }
+
+        .reveal-btn:hover {
+            transform: translateY(-2px);
+            transition: all 0.2s;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .math-block {
+            background: #f8fafc;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            border-left: 4px solid #3b82f6;
+            margin: 1rem 0;
+        }
+
+        .quiz-card {
+            transition: transform 0.2s;
+        }
+
+        .quiz-card:hover {
+            transform: scale(1.01);
+        }
+
+        .exercise-card {
+            border-left: 4px solid #e2e8f0;
+        }
+
+        .exercise-card:hover {
+            border-left-color: #6366f1;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800 leading-relaxed">
+
+    <!-- Header Section -->
+    <header class="bg-indigo-700 text-white py-12 px-4 shadow-lg text-center">
+        <h1 class="text-3xl md:text-4xl font-bold mb-4">Mastering Complex Exponential Equations</h1>
+        <p class="text-lg opacity-90 max-w-2xl mx-auto">Learn how to solve advanced equations using power rules and
+            algebraic identities step-by-step.</p>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-4 py-8">
+
+        <!-- Part 1: Foundation -->
+        <section class="mb-12">
+            <div class="flex items-center mb-6">
+                <div class="bg-blue-100 p-2 rounded-full mr-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-600" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                    </svg>
+                </div>
+                <h2 class="text-2xl font-bold">Part 1: Foundation - Essential Knowledge</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                    <h3 class="font-bold text-indigo-600 mb-2">1. Identities $(x \pm a)^2$</h3>
+                    <div class="grid grid-cols-2 gap-4 text-sm">
+                        <div>
+                            <p class="text-xs font-semibold text-gray-400 uppercase mb-2">Subtraction $(-a)$:</p>
+                            <ul class="space-y-1">
+                                <li>$x^2 - 2x + 1 = (x - 1)^2$</li>
+                                <li>$x^2 - 4x + 4 = (x - 2)^2$</li>
+                                <li>$x^2 - 6x + 9 = (x - 3)^2$</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <p class="text-xs font-semibold text-gray-400 uppercase mb-2">Addition $(+a)$:</p>
+                            <ul class="space-y-1">
+                                <li>$x^2 + 2x + 1 = (x + 1)^2$</li>
+                                <li>$x^2 + 4x + 4 = (x + 2)^2$</li>
+                                <li>$x^2 + 6x + 9 = (x + 3)^2$</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                    <h3 class="font-bold text-indigo-600 mb-2">2. Exponential Rules</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li>$(x^a)^b = x^{a \cdot b}$ (Ex: $(e^2)^3 = e^6$)</li>
+                        <li>$x^a \cdot x^b = x^{a+b}$ (Ex: $e^2 \cdot e^x = e^{2+x}$)</li>
+                        <li>$x^{-a} = \frac{1}{x^a}$ (Ex: $e^{-2} = \frac{1}{e^2}$)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Quiz Section -->
+            <div class="mt-8 bg-indigo-50 p-6 rounded-xl border border-indigo-100">
+                <h3 class="text-xl font-bold mb-4 text-indigo-800">Quick Challenges (Quiz)</h3>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <!-- Type 1 -->
+                    <div class="space-y-4">
+                        <p class="text-xs font-bold text-indigo-400 uppercase tracking-wider">Type 1: Polynomial
+                            Transformation</p>
+                        <div class="bg-white p-4 rounded-lg shadow-sm quiz-card border-l-4 border-indigo-300">
+                            <p class="text-sm font-medium mb-2">Q1.1: Transform $x^2 - 4x + 5$ into $(x-a)^2 + k$?</p>
+                            <button onclick="toggleElement('ans1_1')"
+                                class="text-indigo-600 text-xs font-semibold hover:underline">Show Answer</button>
+                            <div id="ans1_1" class="hidden-content mt-2 p-2 bg-gray-50 rounded text-xs text-gray-700">
+                                $x^2 - 4x + 4 + 1 = (x-2)^2 + 1$.
+                            </div>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow-sm quiz-card border-l-4 border-indigo-300">
+                            <p class="text-sm font-medium mb-2">Q1.2: Transform $x^2 + 6x + 10$ into $(x+a)^2 + k$?</p>
+                            <button onclick="toggleElement('ans1_2')"
+                                class="text-indigo-600 text-xs font-semibold hover:underline">Show Answer</button>
+                            <div id="ans1_2" class="hidden-content mt-2 p-2 bg-gray-50 rounded text-xs text-gray-700">
+                                $x^2 + 6x + 9 + 1 = (x+3)^2 + 1$.
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Type 2 -->
+                    <div class="space-y-4">
+                        <p class="text-xs font-bold text-indigo-400 uppercase tracking-wider">Type 2: Power
+                            Simplification</p>
+                        <div class="bg-white p-4 rounded-lg shadow-sm quiz-card border-l-4 border-purple-300">
+                            <p class="text-sm font-medium mb-2">Q2.1: Simplify $(e^2)^{x^2-4x+5}$?</p>
+                            <button onclick="toggleElement('ans2_1')"
+                                class="text-indigo-600 text-xs font-semibold hover:underline">Show Answer</button>
+                            <div id="ans2_1" class="hidden-content mt-2 p-2 bg-gray-50 rounded text-xs text-gray-700">
+                                $e^{2(x^2-4x+5)} = e^{2(x-2)^2 + 2}$.
+                            </div>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow-sm quiz-card border-l-4 border-purple-300">
+                            <p class="text-sm font-medium mb-2">Q2.2: If $t = e^{2(x-2)^2}$, find $e^{4(x-2)^2}$ in
+                                terms of $t$?</p>
+                            <button onclick="toggleElement('ans2_2')"
+                                class="text-indigo-600 text-xs font-semibold hover:underline">Show Answer</button>
+                            <div id="ans2_2" class="hidden-content mt-2 p-2 bg-gray-50 rounded text-xs text-gray-700">
+                                $(e^{2(x-2)^2})^2 = t^2$.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Part 2: Step-by-step Solution -->
+        <section class="mb-12">
+            <div class="flex items-center mb-6">
+                <div class="bg-green-100 p-2 rounded-full mr-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-600" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+                    </svg>
+                </div>
+                <h2 class="text-2xl font-bold">Part 2: Solving the Main Problem</h2>
+            </div>
+
+            <div class="bg-white p-8 rounded-2xl shadow-md border-t-4 border-indigo-500 mb-8">
+                <p class="text-center text-lg font-semibold mb-4">Solve the equation:</p>
+                <div class="math-block text-center text-xl overflow-x-auto">
+                    $$(1 + e^{-2})(e^2)^{x^2-4x+5} = e^2 + e^{4(x-2)^2}$$
+                </div>
+            </div>
+
+            <div class="space-y-4">
+                <div class="border-l-4 border-gray-200 pl-6 py-2">
+                    <h4 class="font-bold text-gray-700">Step 1: Analyzing the Exponents</h4>
+                    <p class="text-sm text-gray-600 mb-2">Hint: Identify the identity in $x^2 - 4x + 5$.</p>
+                    <button onclick="toggleElement('step1')"
+                        class="reveal-btn bg-indigo-100 text-indigo-700 px-4 py-1 rounded-full text-sm font-bold">Show
+                        Step 1 Result</button>
+                    <div id="step1" class="hidden-content mt-4 p-4 bg-indigo-50 rounded-lg">
+                        We have: $x^2 - 4x + 5 = (x-2)^2 + 1$.<br>
+                        The equation becomes: $(1 + e^{-2}) \cdot e^{2[(x-2)^2 + 1]} = e^2 + e^{4(x-2)^2}$.
+                    </div>
+                </div>
+
+                <div class="border-l-4 border-gray-200 pl-6 py-2">
+                    <h4 class="font-bold text-gray-700">Step 2: Simplify and Expand</h4>
+                    <button onclick="toggleElement('step2')"
+                        class="reveal-btn bg-indigo-100 text-indigo-700 px-4 py-1 rounded-full text-sm font-bold">Show
+                        Step 2 Result</button>
+                    <div id="step2" class="hidden-content mt-4 p-4 bg-indigo-50 rounded-lg">
+                        Left Hand Side (LHS): $(1 + e^{-2}) \cdot e^{2(x-2)^2} \cdot e^2 = e^2 \cdot e^{2(x-2)^2} +
+                        e^{2(x-2)^2}$.
+                    </div>
+                </div>
+
+                <div class="border-l-4 border-gray-200 pl-6 py-2">
+                    <h4 class="font-bold text-gray-700">Step 3: Substitution</h4>
+                    <p class="text-sm text-gray-600 mb-2">Hint: Let $t = e^{2(x-2)^2}$.</p>
+                    <button onclick="toggleElement('step3')"
+                        class="reveal-btn bg-indigo-100 text-indigo-700 px-4 py-1 rounded-full text-sm font-bold">Show
+                        Step 3 Result</button>
+                    <div id="step3" class="hidden-content mt-4 p-4 bg-indigo-50 rounded-lg">
+                        Let $t = e^{2(x-2)^2} \geq 1$.<br>
+                        Equation: $t \cdot e^2 + t = e^2 + t^2 \Rightarrow t^2 - (e^2 + 1)t + e^2 = 0$.
+                    </div>
+                </div>
+
+                <div class="border-l-4 border-gray-200 pl-6 py-2">
+                    <h4 class="font-bold text-gray-700">Step 4: Factorization and Solving for t</h4>
+                    <button onclick="toggleElement('step4')"
+                        class="reveal-btn bg-indigo-100 text-indigo-700 px-4 py-1 rounded-full text-sm font-bold">Show
+                        Step 4 Result</button>
+                    <div id="step4" class="hidden-content mt-4 p-4 bg-indigo-50 rounded-lg">
+                        $(t-1)(t-e^2) = 0 \Rightarrow t = 1$ or $t = e^2$.
+                    </div>
+                </div>
+
+                <div class="border-l-4 border-gray-200 pl-6 py-2">
+                    <h4 class="font-bold text-gray-700">Step 5: Final Solutions for x</h4>
+                    <button onclick="toggleElement('step5')"
+                        class="reveal-btn bg-indigo-100 text-indigo-700 px-4 py-1 rounded-full text-sm font-bold">Show
+                        Step 5 Result</button>
+                    <div id="step5" class="hidden-content mt-4 p-4 bg-indigo-50 rounded-lg">
+                        1. $e^{2(x-2)^2} = 1 \Rightarrow x = 2$.<br>
+                        2. $e^{2(x-2)^2} = e^2 \Rightarrow (x-2)^2 = 1 \Rightarrow x = 1$ or $x = 3$.<br>
+                        **Final Solution Set: $S = \{1, 2, 3\}$.**
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Part 3: Practice Exercises -->
+        <section class="mb-12">
+            <div class="flex items-center mb-6">
+                <div class="bg-yellow-100 p-2 rounded-full mr-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-600" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                    </svg>
+                </div>
+                <h2 class="text-2xl font-bold">Part 3: Practice Challenges</h2>
+            </div>
+
+            <div class="space-y-6">
+                <!-- Level 1 -->
+                <div class="bg-white p-6 rounded-xl shadow-sm exercise-card">
+                    <span
+                        class="bg-green-100 text-green-700 text-xs font-bold px-2 py-1 rounded uppercase mb-2 inline-block">Level
+                        1: Basic</span>
+                    <p class="font-medium mb-4">Problem 1: Solve for $x$: $2^{x^2-2x+1} = 4$</p>
+                    <button onclick="toggleElement('ex1_hint')"
+                        class="text-indigo-600 text-sm hover:underline mr-4">Hint</button>
+                    <button onclick="toggleElement('ex1_ans')"
+                        class="text-indigo-600 text-sm hover:underline">Answer</button>
+                    <div id="ex1_hint" class="hidden-content mt-3 p-3 bg-gray-50 border-l-2 border-gray-300 text-sm">
+                        Recognize $x^2-2x+1 = (x-1)^2$ and $4 = 2^2$.</div>
+                    <div id="ex1_ans"
+                        class="hidden-content mt-3 p-3 bg-green-50 border-l-2 border-green-300 text-sm font-bold">
+                        Answer: $x = 1 \pm \sqrt{2}$.</div>
+                </div>
+
+                <!-- Level 2 -->
+                <div class="bg-white p-6 rounded-xl shadow-sm exercise-card">
+                    <span
+                        class="bg-yellow-100 text-yellow-700 text-xs font-bold px-2 py-1 rounded uppercase mb-2 inline-block">Level
+                        2: Intermediate</span>
+                    <p class="font-medium mb-4">Problem 2: Solve for $x$: $e^{2(x+1)^2} - (e+1)e^{(x+1)^2} + e = 0$</p>
+                    <button onclick="toggleElement('ex2_hint')"
+                        class="text-indigo-600 text-sm hover:underline mr-4">Hint</button>
+                    <button onclick="toggleElement('ex2_ans')"
+                        class="text-indigo-600 text-sm hover:underline">Answer</button>
+                    <div id="ex2_hint" class="hidden-content mt-3 p-3 bg-gray-50 border-l-2 border-gray-300 text-sm">
+                        Substitute $t = e^{(x+1)^2}$. Solve the quadratic $t^2 - (e+1)t + e = 0$.</div>
+                    <div id="ex2_ans"
+                        class="hidden-content mt-3 p-3 bg-green-50 border-l-2 border-green-300 text-sm font-bold">
+                        Answer: $x = -1, x=0, x=-2$.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Part 4: Summary -->
+        <section class="bg-gray-800 text-white p-8 rounded-3xl shadow-2xl">
+            <h2 class="text-2xl font-bold mb-6 flex items-center">
+                <span class="mr-3">🚀</span> Part 4: The Strategy (U-S-F)
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-gray-700 p-5 rounded-xl border-l-4 border-yellow-400">
+                    <h4 class="font-bold text-yellow-400 mb-2">1. Unify</h4>
+                    <p class="text-sm">Standardize complex exponents into a common form using identities.</p>
+                </div>
+                <div class="bg-gray-700 p-5 rounded-xl border-l-4 border-green-400">
+                    <h4 class="font-bold text-green-400 mb-2">2. Substitute</h4>
+                    <p class="text-sm">Turn exponential mess into a familiar polynomial equation for variable $t$.</p>
+                </div>
+                <div class="bg-gray-700 p-5 rounded-xl border-l-4 border-blue-400">
+                    <h4 class="font-bold text-blue-400 mb-2">3. Factorize</h4>
+                    <p class="text-sm">Group terms to find common factors. Never convert constants like $e$ to decimals
+                        too early!</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="py-8 text-center text-gray-500 text-sm">
+        &copy; 2024 Creative Math Classroom. Happy Learning!
+    </footer>
+
+    <script>
+        function toggleElement(id) {
+            const element = document.getElementById(id);
+            if (element.style.display === "block") {
+                element.style.display = "none";
+            } else {
+                element.style.display = "block";
+                if (typeof MathJax !== 'undefined') {
+                    MathJax.typesetPromise([element]);
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
